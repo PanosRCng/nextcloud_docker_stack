@@ -46,7 +46,7 @@ add to nextcloud_data/app_data/config/config.php
 
 * copy data
 ```
-rsync -e 'ssh -p 22 -o "StrictHostKeyChecking no"' -ravzx --delete --numeric-ids /SOURCE/nextcloud/data/USER/files /DESTINATION/nextcloud_stack_docker_compose/stack_data/nextcloud_data/datadir/USER/
+rsync -e 'ssh -p 22 -o "StrictHostKeyChecking no"' -ravzx --delete --numeric-ids /SOURCE/nextcloud/data/USER/files /DESTINATION/nextcloud_docker_stack/stack_data/nextcloud_data/datadir/USER/
 ```
 
 * run files scan
