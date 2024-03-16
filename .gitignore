@@ -1,0 +1,4 @@
+env
+stack_data/db_data/
+stack_data/nextcloud_data/
+stack_data/redis_data/
