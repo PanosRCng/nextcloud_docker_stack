@@ -3,35 +3,27 @@
 
 * start to background
     ```
-    docker compose --env-file=env -f nextcloud.yml up -d
+    make start
     ```
 
 * stop
     ```
-    docker compose --env-file=env -f nextcloud.yml down
+    make stop
     ```
 
 
 ### configuration
 ```
-cp env_sample env
+cp env_example env
 ```
 ```
-make changes to env
+edit env
 ```
 
 ### (*) nextcloud cron job issue
 fix for  https://github.com/nextcloud/docker/issues/1695
 ```
 */5 * * * * /usr/bin/docker exec -u 1000:1000 nextcloud_stack_nextcloud php -f /var/www/html/cron.php
-```
-
-### (*) Desktop Client issue
-fix for Desktop Client is trying to use HTTP instead of HTTPS
-```
-add to nextcloud_data/app_data/config/config.php
-    'overwrite.cli.url' => 'https://nextcloud.mydomain.com',
-    'overwriteprotocol' => 'https',
 ```
 
 
@@ -60,7 +52,7 @@ Updating is done by pulling the new image, throwing away the old container and s
 
 * stop the stack
     ```
-    docker compose --env-file=env -f nextcloud.yml down
+    make stop
     ```
 * remove old nextcloud docker image
     ```
@@ -68,14 +60,14 @@ Updating is done by pulling the new image, throwing away the old container and s
     ```
 * start the stack
     ```
-    docker compose --env-file=env -f nextcloud.yml up -d
+    make start
     ```
 
 ### System Links
 
 #### nextcloud
 ```
-http://127.0.0.1:8083
+http://127.0.0.1:8080
 ```
 
 ##### based on https://github.com/nextcloud/docker/blob/master/.examples/docker-compose/insecure/mariadb/fpm/docker-compose.yml
